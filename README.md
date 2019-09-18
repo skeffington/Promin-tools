@@ -2,6 +2,9 @@
 
 This is the project page for Promin Tools: a collection of bioinformatic tools for the analysis of protein seqeunces thought to be involved in biomineralization.
 
+### Quick start guide: via the discovery environment
+
+### Quick start guide: using the docker image
 
 ### Protein Motif Finder
 
