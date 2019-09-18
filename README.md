@@ -1,6 +1,6 @@
 ## Promin Tools
 
-This is the project page for Prmin Tools: a collection of bioinformatic tools for the analysis of protein seqeunces thought to be involved in biomineralization.
+This is the project page for Promin Tools: a collection of bioinformatic tools for the analysis of protein seqeunces thought to be involved in biomineralization.
 
 
 ### Protein Motif Finder
