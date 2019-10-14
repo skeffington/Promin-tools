@@ -83,15 +83,15 @@ perl -S seq_properties.pl [foreground fasta] [background fasta] [flps p-value (e
 
 #### Description of Outputs:
 
-*_bgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the background sequence set
-*_fgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the foreground sequence set
-*_fgenrich.txt : the enrichment of each of the overrepresented motifs in each of the proteins in the foreground sequence set with repspect to the background sequence set  
+* _bgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the background sequence set
+* _fgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the foreground sequence set
+* _fgenrich.txt : the enrichment of each of the overrepresented motifs in each of the proteins in the foreground sequence set with repspect to the background sequence set  
 *_motifsummary.txt : for each overrepresented motif, the enrichemnt in the forgraound sequnces relative to the background; the count of proteins in which it appears and the median count of the motif per  protein  
-*_motifs.html : A html summary of the analysis with some helpful plots  
-*_Rscript.R : The R script that generated the html output. This can be used as a basis to produce your own custom figures and plots in R.  
-*_wordclouds.svg : An svg file of the wordclouds from the html report. This can be imported into inkscape or illustrator to make publication ready figures.  
+* _motifs.html : A html summary of the analysis with some helpful plots  
+* _Rscript.R : The R script that generated the html output. This can be used as a basis to produce your own custom figures and plots in R.  
+* _wordclouds.svg : An svg file of the wordclouds from the html report. This can be imported into inkscape or illustrator to make publication ready figures.  
 
-where * = the ouput prefix provided by the user.
+These filenames will be prefixed by the user specified file prefix.
 
 #### Description of the program:
 
