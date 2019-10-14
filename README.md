@@ -15,11 +15,11 @@ These tools are stil being updated, so if you want new features or have suggesti
 - [Quick start guide: using the docker image](#quick-start-guide--using-the-docker-image)
 - [Protein Motif Finder](#protein-motif-finder)
   * [Description of inputs:](#description-of-inputs-)
-  * [Description of Outputs:](#outputs-)
+  * [Description of Outputs:](#description-of-outputs-)
   * [Description of the program:](#description-of-the-program-)
   * [The motif-x software:](#the-motif-x-software-)
 - [Sequence properties analyzer](#sequence-properties-analyzer)
-  * [Description  of inputs](#description--of-inputs)
+  * [Description of inputs](#description-of-inputs)
   * [Description of Outputs](#description-of-outputs)
 - [Contact:](#contact-)
 
@@ -110,7 +110,7 @@ The software in this package is provided under the GPL-3 licence.
 
 ### Sequence properties analyzer
 
-#### Description  of inputs
+#### Description of inputs
 
 As with Protein Motif Finder, the main inputs are:
 
