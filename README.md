@@ -14,14 +14,14 @@ These tools are stil being updated, so if you want new features or have suggesti
 - [Quick start guide: via the discovery environment](#quick-start-guide--via-the-discovery-environment)
 - [Quick start guide: using the docker image](#quick-start-guide--using-the-docker-image)
 - [Protein Motif Finder](#protein-motif-finder)
-  * [Description of inputs:](#description-of-inputs-)
-  * [Description of Outputs:](#description-of-outputs-)
-  * [Description of the program:](#description-of-the-program-)
-  * [The motif-x software:](#the-motif-x-software-)
+  * [Description of inputs](#description-of-inputs)
+  * [Description of Outputs](#description-of-outputs)
+  * [Description of the program](#description-of-the-program)
+  * [The motif-x software](#the-motif-x-software)
 - [Sequence properties analyzer](#sequence-properties-analyzer)
   * [Description of inputs](#description-of-inputs)
   * [Description of Outputs](#description-of-outputs)
-- [Contact:](#contact-)
+- [Contact](#contact)
 
 ### Quick start guide: via the discovery environment
 
