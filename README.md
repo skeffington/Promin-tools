@@ -11,8 +11,8 @@ These tools are stil being updated, so if you want new features or have suggesti
 
 ##### Table of Contents  
 
-- [Quick start guide: via the discovery environment](#quick-start-guide--via-the-discovery-environment)
-- [Quick start guide: using the docker image](#quick-start-guide--using-the-docker-image)
+- [Quick start guidevia the discovery environment](#quick-start-guide-via-the-discovery-environment)
+- [Quick start guide via the docker image](#quick-start-guide-via-the-docker-image)
 - [Protein Motif Finder](#protein-motif-finder)
   * [Description of inputs](#description-of-inputs)
   * [Description of Outputs](#description-of-outputs)
@@ -23,7 +23,7 @@ These tools are stil being updated, so if you want new features or have suggesti
   * [Description of Outputs](#description-of-outputs)
 - [Contact](#contact)
 
-### Quick start guide: via the discovery environment
+### Quick start guide via the discovery environment
 
 The tools are hosted on Cyverse: and online cyberinfrastructure funded by the National Science Foundation’s Directorate for Biological Sciences.
 
@@ -38,7 +38,7 @@ The tools are hosted on Cyverse: and online cyberinfrastructure funded by the Na
 * Select your data, choose the parameters an **Launch Analysis**
 * You will get a notification message when your analysis is complete
 
-### Quick start guide: using the docker image
+### Quick start guide via the docker image
 
 If you know your way round Docker, the Protein Motif Finder Docker image is available here:
 
