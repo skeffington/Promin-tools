@@ -48,7 +48,7 @@ run with the command:
 
 ```
 perl -S motif_finder.pl [fasta input of foreground sequences (> 3 sequences)] [fast input of background sequnces] [window size (must be an odd number)] [p-value cutoff] [output prefix]
-
+```
 For example:
 ```
 perl -S motif_finder.pl foreground.fasta background.fasta 9 1e-6 my_output
