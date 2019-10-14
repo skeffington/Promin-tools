@@ -1,10 +1,17 @@
 ## Promin Tools
 
-This is the project page for Promin Tools: a collection of bioinformatic tools for the analysis of protein seqeunces thought to be involved in biomineralization.
+This is the project page for Promin Tools: a collection of bioinformatic tools for the analysis of protein seqeunces thought to be involved in biomineralization. 
 
 ### Quick start guide: via the discovery environment
 
+
+
+
 ### Quick start guide: using the docker image
+
+If you know your way round Docker, the Protein Motif Finder Docker image is available here:
+
+https://hub.docker.com/repository/docker/biologistatsea/promofi/
 
 ### Protein Motif Finder
 
