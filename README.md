@@ -15,7 +15,7 @@ These tools are stil being updated, so if you want new features or have suggesti
 - [Quick start guide: using the docker image](#quick-start-guide--using-the-docker-image)
 - [Protein Motif Finder](#protein-motif-finder)
   * [Description of inputs:](#description-of-inputs-)
-  * [Outputs:](#outputs-)
+  * [Description of Outputs:](#outputs-)
   * [Description of the program:](#description-of-the-program-)
   * [The motif-x software:](#the-motif-x-software-)
 - [Sequence properties analyzer](#sequence-properties-analyzer)
@@ -49,7 +49,8 @@ run with the command:
 ```
 perl -S motif_finder.pl [fasta input of foreground sequences (> 3 sequences)] [fast input of background sequnces] [window size (must be an odd number)] [p-value cutoff] [output prefix]
 
-#e.g.  
+For example:
+```
 perl -S motif_finder.pl foreground.fasta background.fasta 9 1e-6 my_output
 ```
 
@@ -80,7 +81,7 @@ perl -S seq_properties.pl [foreground fasta] [background fasta] [flps p-value (e
 
 *Output prefix:* This is the text which will be at the beginning of each of the output file names 
 
-#### Outputs:
+#### Description of Outputs:
 
 *_bgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the background sequence set
 *_fgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the foreground sequence set
