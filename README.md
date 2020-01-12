@@ -21,6 +21,7 @@ These tools are stil being updated, so if you want new features or have suggesti
 - [Sequence properties analyzer](#sequence-properties-analyzer)
   * [Description of inputs](#description-of-inputs)
   * [Description of Outputs](#description-of-outputs)
+  * [Software used by the Sequence Properties Analyser](#Software-used-by-the-Sequence-Properties-Analyser)
 - [Contact](#contact)
 
 ### Quick start guide via the discovery environment
@@ -164,8 +165,7 @@ Harrison, P.M. fLPS: Fast discovery of compositional biases for the protein univ
 
 Copyright 2017. Paul Martin Harrison. 
 
-Distrubuted under a 3-clause BSD license
---------------------
+Distrubuted under a 3-clause BSD license:
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
@@ -184,24 +184,36 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 Seg divides seqeunces into low and high complexity regions. More information is available here: http://www.biology.wustl.edu/gcg/seg.html
 
 Authors:
-John Wootton:     wootton@ncbi.nlm.nih.gov
-Scott Federhen:   federhen@ncbi.nlm.nih.gov
-
-National Center for Biotechnology Information
-Building 38A, Room 8N805
+John Wootton and Scott Federhen   
 National Library of Medicine
 National Institutes of Health
-Bethesda, Maryland, MD 20894
-U.S.A.
+Bethesda, Maryland, MD 20894, USA
 
-Wootton, J.C., Federhen, S. (1993)  Statistics of local complexity
-in amino acid sequences and sequence  databases.  Computers &
-Chemistry 17: 149-163.
+Wootton, J.C., Federhen, S. (1993)  Statistics of local complexity in amino acid sequences and sequence databases.  Computers & Chemistry 17: 149-163.
 
 
 **VSL2**
 
+VSL2 predicts regions of intrinsic disorder in proteins. Although not the most modern predictor available, it is still has good accuracy and is very fast compared to more recent predictors. This makes it feasible to run the predictor on a proteome scale in a reasonable timeframe.
+
+Peng, K., Radivojac, P., Vucetic, S. et al. Length-dependent prediction of protein intrinsic disorder. BMC Bioinformatics 7, 208 (2006) doi:10.1186/1471-2105-7-208
+
 **SAPS**
 
+SAPS calculates a variety of statistical properties for protein sequences. 
+
+Author: 
+Volker Brendel
+Department of Mathematics, Stanford University, Stanford CA 94305, USA
+
+ Brendel, V., Bucher, P., Nourbakhsh, I.R., Blaisdell, B.E. & Karlin, S. (1992)
+ Methods and algorithms for statistical analysis of protein sequences
+ Proc. Natl. Acad. Sci. U.S.A. 89, 2002-2006.
+
+ Karlin, S., Weinstock, G.M., Brendel, V. (1995)
+ Bacterial classifications derived from RecA protein sequence comparisons.
+ J. Bacteriol. 177: 6881-6893.
+
+
 ### Contact: 
-This software was written by Alastair Skeffington of the Max Planck Institute for Molecular Plant Physiology, Potsdam, Germany
+The ProminTools package was written by Alastair Skeffington of the Max Planck Institute for Molecular Plant Physiology, Potsdam, Germany
