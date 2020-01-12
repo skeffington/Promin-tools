@@ -67,7 +67,9 @@ perl -S seq_properties.pl [foreground fasta] [background fasta] [flps p-value (e
 
 ```
 
-<style>p{color:red;}Hello</style>
+<div class="text-purple">
+  This text is purple, <a href="#" class="text-inherit">including the link</a>
+</div>
 
 ### Protein Motif Finder
 
