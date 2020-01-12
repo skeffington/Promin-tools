@@ -67,10 +67,6 @@ perl -S seq_properties.pl [foreground fasta] [background fasta] [flps p-value (e
 
 ```
 
-<div class="text-purple">
-  This text is purple, <a href="#" class="text-inherit">including the link</a>
-</div>
-
 ### Protein Motif Finder
 
 #### Description of inputs:
@@ -126,7 +122,7 @@ As with Protein Motif Finder, the main inputs are:
 
 *Background fasta input*
 
-The other parameters are for the Seg program and should be left as defaut except for advanced users.
+The user must also provide a p-value cut-off for running fLPS: the program that finds biased regions in protein sequences. The other parameters are for the Seg program and should be left as defaut except for advanced users.
 
 #### Description of Outputs
 
@@ -157,6 +153,55 @@ The main tabular outputs of the program are listed below:
 * _protcount.txt: For each type of compositional bias (amino acid or group of amino acids), gives the count of proteins in the POI set containing this bias. Data used in figure 2.
 * _Rscript.R : The R script that generated the html output. This can be used as a basis to produce your own custom figures and plots in R  
 
+#### Software used by the Sequence Properties Analyser
+
+Sequence Properties Analyser is largely a wrapper program that takes your inputs, converts them into formats suitable for other programs, runs those programs, collates the results and presents them in a useful way. Specifically it relies on the following software:
+
+**fLPS**
+This is used to look for biases in amino acid content in both regions of the protein as well as at the whole protein level.  fLPS is designed to discover compositionally biased regions in proteins: http://biology.mcgill.ca/faculty/harrison/flps.html
+
+Harrison, P.M. fLPS: Fast discovery of compositional biases for the protein universe. BMC Bioinformatics 18, 476 (2017) doi:10.1186/s12859-017-1906-3
+
+Copyright 2017. Paul Martin Harrison. 
+
+Distrubuted under a 3-clause BSD license
+--------------------
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+**Seg**
+
+Seg divides seqeunces into low and high complexity regions. More information is available here: http://www.biology.wustl.edu/gcg/seg.html
+
+Authors:
+John Wootton:     wootton@ncbi.nlm.nih.gov
+Scott Federhen:   federhen@ncbi.nlm.nih.gov
+
+National Center for Biotechnology Information
+Building 38A, Room 8N805
+National Library of Medicine
+National Institutes of Health
+Bethesda, Maryland, MD 20894
+U.S.A.
+
+Wootton, J.C., Federhen, S. (1993)  Statistics of local complexity
+in amino acid sequences and sequence  databases.  Computers &
+Chemistry 17: 149-163.
+
+
+**VSL2**
+
+**SAPS**
 
 ### Contact: 
 This software was written by Alastair Skeffington of the Max Planck Institute for Molecular Plant Physiology, Potsdam, Germany
