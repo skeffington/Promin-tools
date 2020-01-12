@@ -56,12 +56,18 @@ perl -S motif_finder.pl foreground.fasta background.fasta 9 1e-6 my_output
 
 For further details about the inputs and outputs see below.
 
-The Sequence Properties Analyzer is coming soon.
+The Sequence Properties Analyzer imageis here:
+
+https://hub.docker.com/repository/docker/biologistatsea/seprolyzer
+
+run with the command:
 
 ```
 perl -S seq_properties.pl [foreground fasta] [background fasta] [flps p-value (eg 1e-4)] [seg window size (eg 12)] [seg locut (eg 2.2)] [seg hicut (eg 2.5)] [output prefix]
 
 ```
+
+<style>p{color:red;}Hello</style>
 
 ### Protein Motif Finder
 
