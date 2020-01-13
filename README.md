@@ -35,7 +35,7 @@ The tools are hosted on Cyverse: and online cyberinfrastructure funded by the Na
 * Open the **Data** window
 * Upload your data as two fasta files
 * Open the **Apps** window
-* Search for **Protein Motif Finder** and select
+* Search for **Protein Motif Finder** or **Sequence Properties Analyser** and select
 * Select your data, choose the parameters an **Launch Analysis**
 * You will get a notification message when your analysis is complete
 
