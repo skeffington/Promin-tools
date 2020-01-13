@@ -158,7 +158,8 @@ The main tabular outputs of the program are listed below:
 
 Sequence Properties Analyser is largely a wrapper program that takes your inputs, converts them into formats suitable for other programs, runs those programs, collates the results and presents them in a useful way. Specifically it relies on the following software:
 
-**fLPS**
+**fLPS**  
+
 This is used to look for biases in amino acid content in both regions of the protein as well as at the whole protein level.  fLPS is designed to discover compositionally biased regions in proteins: http://biology.mcgill.ca/faculty/harrison/flps.html
 
 Harrison, P.M. fLPS: Fast discovery of compositional biases for the protein universe. BMC Bioinformatics 18, 476 (2017) doi:10.1186/s12859-017-1906-3
