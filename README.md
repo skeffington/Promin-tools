@@ -175,7 +175,7 @@ Redistribution and use in source and binary forms, with or without modification,
 
 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+This software is provided by the copyright holders and contributors "as is" and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the copyright holder or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
 
 
 
@@ -198,6 +198,8 @@ VSL2 predicts regions of intrinsic disorder in proteins. Although not the most m
 
 Peng, K., Radivojac, P., Vucetic, S. et al. Length-dependent prediction of protein intrinsic disorder. BMC Bioinformatics 7, 208 (2006) doi:10.1186/1471-2105-7-208
 
+Incorperated into ProminTools with the permission of Prof. Zoran Obradovic.
+
 **SAPS**
 
 SAPS calculates a variety of statistical properties for protein sequences. 
@@ -213,7 +215,6 @@ Department of Mathematics, Stanford University, Stanford CA 94305, USA
  Karlin, S., Weinstock, G.M., Brendel, V. (1995)
  Bacterial classifications derived from RecA protein sequence comparisons.
  J. Bacteriol. 177: 6881-6893.
-
 
 ### Contact: 
 The ProminTools package was written by Alastair Skeffington of the Max Planck Institute for Molecular Plant Physiology, Potsdam, Germany
