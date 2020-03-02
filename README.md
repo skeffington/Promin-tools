@@ -1,6 +1,6 @@
-## Promin Tools
+## ProminTools
 
-This is the project page for Promin Tools: a collection of bioinformatic tools for the analysis of protein seqeunces thought to be involved in biomineralization. 
+This is the project page for ProminTools: a collection of bioinformatic tools for the analysis of protein seqeunces thought to be involved in biomineralization. 
 
 So far there are two tools:
 
@@ -41,32 +41,35 @@ The tools are hosted on Cyverse: and online cyberinfrastructure funded by the Na
 
 ### Quick start guide via the docker image
 
-If you know your way round Docker, the Protein Motif Finder Docker image is available here:
+The Tools can be run easily on a Windows desktop computer using the Docker container:
 
-https://hub.docker.com/repository/docker/biologistatsea/promofi/
-
-run with the command:
-
+* Install Docker Desktop on a Windows 10 machine where the Hyper-V and Containers Windows features are enabled
+* Open Window Power Shell
+* Test your installation (type "docker run -it ubuntu bash" and then "exit", and a unix image should be downloaded, start and exit)
+* From the Docker icon on our taks bar go to settings -> resources -> file sharing
+* Make sure the drive where you have your data and want to work is selected
+* Go to Resources -> Advanced
+* Protein Motif Finder only uses one thread so the defaut setting should be fine. For running Sequence Properties Analyser it makes sense to provide Docker with more resources, eg 5 CPUs and  5 GB memory
+* Restart Docker
+* Now pull the appropariate Docker image:
+For Protein Motif Finder:
 ```
-perl -S motif_finder.pl [fasta input of foreground sequences (> 3 sequences)] [fast input of background sequnces] [window size (must be an odd number)] [p-value cutoff] [output prefix]
+docker pull biologistatsea/promofi:latest
 ```
-For example:
+or Sequence Properties Analyzer:
 ```
-perl -S motif_finder.pl foreground.fasta background.fasta 9 1e-6 my_output
+docker pull biologistatsea/seprolyzer:1
 ```
-
-For further details about the inputs and outputs see below.
-
-The Sequence Properties Analyzer imageis here:
-
-https://hub.docker.com/repository/docker/biologistatsea/seprolyzer
-
-run with the command:
-
+* Run the tool:
+Run Protein Motif Finder with a command like this:
 ```
-perl -S seq_properties.pl [foreground fasta] [background fasta] [flps p-value (eg 1e-4)] [seg window size (eg 12)] [seg locut (eg 2.2)] [seg hicut (eg 2.5)] [output prefix]
-
+docker run -it -v C:\promin:/home/sharedata biologistatsea/promofi:latest /home/sharedata/FG.fasta /home/sharedata/BG.fasta 9 1e-6 /home/sharedata/OUT
 ```
+or Sequence Properties Analyzer with a command like this:
+```
+docker run -it -v C:\promin:/home/sharedata biologistatsea/seprolyzer:1 /home/sharedata/FG.fasta /home/sharedata/BG.fasta 1e-4 12 2.2 2.5 /home/sharedata/OUT
+```
+Where "C:\promin" refers to an exisiting directory on your C drive where your input data are stored and the output data are written. /home/sharedata refers to the location of this 'volume' withing the Docker container. You don't need to modifiy this. biologistatsea/seprolyzer:1 or biologistatsea/promofi:latest tells Docker with container to run. The remainder is the command line input for the tool. Running it without any of these next arguments will give you a list of the arguments the tools is expecting. For both tools the first two arguments are the path to the foreground fasta file and the path to the background fasta file within the container, while the last argument is the path to the output file and the prefix for output filenames. For Protein Motif Finder the remaining two arguments are the window size and the p-value cut-off. For Sequence Properties Analyzer the remaining arguments are the fLPS p-value and the parameters for Seg. 
 
 ### Protein Motif Finder
 
