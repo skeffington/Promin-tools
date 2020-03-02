@@ -51,7 +51,8 @@ The Tools can be run easily on a Windows desktop computer using the Docker conta
 * Go to Resources -> Advanced
 * Protein Motif Finder only uses one thread so the defaut setting should be fine. For running Sequence Properties Analyser it makes sense to provide Docker with more resources, eg 5 CPUs and  5 GB memory
 * Restart Docker
-* Now pull the appropariate Docker image:
+* Now pull the appropariate Docker image:  
+
 For Protein Motif Finder:
 ```
 docker pull biologistatsea/promofi:latest
