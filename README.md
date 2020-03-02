@@ -44,7 +44,7 @@ The tools are hosted on Cyverse: and online cyberinfrastructure funded by the Na
 The Tools can be run easily on a Windows desktop computer using the Docker container:
 
 * Install Docker Desktop on a Windows 10 machine where the Hyper-V and Containers Windows features are enabled
-* Open Window Power Shell
+* Open Windows PowerShell
 * Test your installation (type "docker run -it ubuntu bash" and then "exit", and a unix image should be downloaded, start and exit)
 * From the Docker icon on our taks bar go to settings -> resources -> file sharing
 * Make sure the drive where you have your data and want to work is selected
