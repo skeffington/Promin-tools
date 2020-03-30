@@ -14,14 +14,15 @@ These tools are stil being updated, so if you want new features or have suggesti
 - [Quick start guidevia the discovery environment](#quick-start-guide-via-the-discovery-environment)
 - [Quick start guide via the docker image](#quick-start-guide-via-the-docker-image)
 - [Protein Motif Finder](#protein-motif-finder)
-  * [Description of inputs](#description-of-inputs)
-  * [Description of Outputs](#description-of-outputs)
+  * [Description of inputs](#description-of-motif-finder-inputs)
+  * [Description of outputs](#description-of-motif-finder-outputs)
   * [Description of the program](#description-of-the-program)
   * [The motif-x software](#the-motif-x-software)
 - [Sequence properties analyzer](#sequence-properties-analyzer)
-  * [Description of inputs](#description-of-inputs)
-  * [Description of Outputs](#description-of-outputs)
+  * [Description of inputs](#description-of-sequence-analyzer-inputs)
+  * [Description of outputs](#description-of-seqeunce-analyzer-outputs)
   * [Software used by the Sequence Properties Analyser](#Software-used-by-the-Sequence-Properties-Analyser)
+- [Changelog and versions](#Changelog-and-versions)
 - [Contact](#contact)
 
 ### Quick start guide via the discovery environment
@@ -35,7 +36,7 @@ The tools are hosted on Cyverse: and online cyberinfrastructure funded by the Na
 * Open the **Data** window
 * Upload your data as two fasta files
 * Open the **Apps** window
-* Search for **Protein Motif Finder** or **Sequence Properties Analyser** and select
+* Search for **Protein Motif Finder 02** or **Seprolyzer 02** (Sequence Properties Analyzer) and select
 * Select your data, choose the parameters an **Launch Analysis**
 * You will get a notification message when your analysis is complete
 
@@ -51,30 +52,30 @@ The Tools can be run easily on a Windows desktop computer using the Docker conta
 * Go to Resources -> Advanced
 * Protein Motif Finder only uses one thread so the defaut setting should be fine. For running Sequence Properties Analyser it makes sense to provide Docker with more resources, eg 5 CPUs and  5 GB memory
 * Restart Docker
-* Now pull the appropariate Docker image:  
+* Now pull the appropariate Docker image. The images detailed below are the latest version:  
 
 For Protein Motif Finder:
 ```
-docker pull biologistatsea/promofi:latest
+docker pull biologistatsea/promofi:02
 ```
 or Sequence Properties Analyzer:
 ```
-docker pull biologistatsea/seprolyzer:1
+docker pull biologistatsea/seprolyzer:02
 ```
 * Run the tool:
 Run Protein Motif Finder with a command like this:
 ```
-docker run -it -v C:\promin:/home/sharedata biologistatsea/promofi:latest /home/sharedata/FG.fasta /home/sharedata/BG.fasta 9 1e-6 /home/sharedata/OUT
+docker run -it -v C:\promin:/home/sharedata biologistatsea/promofi:02 /home/sharedata/FG.fasta /home/sharedata/BG.fasta 9 1e-6 /home/sharedata/OUT
 ```
 or Sequence Properties Analyzer with a command like this:
 ```
-docker run -it -v C:\promin:/home/sharedata biologistatsea/seprolyzer:1 /home/sharedata/FG.fasta /home/sharedata/BG.fasta 1e-4 12 2.2 2.5 /home/sharedata/OUT
+docker run -it -v C:\promin:/home/sharedata biologistatsea/seprolyzer:02 /home/sharedata/FG.fasta /home/sharedata/BG.fasta 1e-4 12 2.2 2.5 /home/sharedata/OUT
 ```
 Where "C:\promin" refers to an exisiting directory on your C drive where your input data are stored and the output data are written. "/home/sharedata" refers to the location of this 'volume' withing the Docker container. You don't need to modifiy this. "biologistatsea/seprolyzer:1" or "biologistatsea/promofi:latest" tells Docker with container to run. The remainder is the command line input for the tool. Running it without any of these next arguments will give you a list of the arguments the tools is expecting. For both tools the first two arguments are the path to the foreground fasta file and the path to the background fasta file within the container, while the last argument is the path to the output file and the prefix for output filenames. For Protein Motif Finder the remaining two arguments are the window size and the p-value cut-off. For Sequence Properties Analyzer the remaining arguments are the fLPS p-value and the parameters for Seg. 
 
 ### Protein Motif Finder
 
-#### Description of inputs:
+#### Description of motif finder inputs:
 
 *Fasta inputs:* Foreground and background sequences should be in fasta format and protein sequences should be represented with uppercase letters using the single-letter amino acid code. There should not be a * or any other non amino-acid character at the end of, or elsewhere in, the sequence. 
 
@@ -90,7 +91,7 @@ Where "C:\promin" refers to an exisiting directory on your C drive where your in
 
 *Output prefix:* This is the text which will be at the beginning of each of the output file names 
 
-#### Description of Outputs:
+#### Description of motif finder outputs:
 
 * _bgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the background sequence set
 * _fgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the foreground sequence set
@@ -119,7 +120,7 @@ The software in this package is provided under the GPL-3 licence.
 
 ### Sequence properties analyzer
 
-#### Description of inputs
+#### Description of sequence analyzer inputs
 
 As with Protein Motif Finder, the main inputs are:
 
@@ -129,7 +130,7 @@ As with Protein Motif Finder, the main inputs are:
 
 The user must also provide a p-value cut-off for running fLPS: the program that finds biased regions in protein sequences. The other parameters are for the Seg program and should be left as defaut except for advanced users.
 
-#### Description of Outputs
+#### Description of sequence analyzer outputs
 
 The main outputs of the program are the data tables. For convenience these are processed to an html document with
 some visualizations of the data. However one analysis pipeline can never be appropriate for every dataset,
@@ -158,7 +159,7 @@ The main tabular outputs of the program are listed below:
 * _protcount.txt: For each type of compositional bias (amino acid or group of amino acids), gives the count of proteins in the POI set containing this bias. Data used in figure 2.
 * _Rscript.R : The R script that generated the html output. This can be used as a basis to produce your own custom figures and plots in R  
 
-#### Software used by the Sequence Properties Analyser
+#### Software used by the Sequence Properties Analyzer
 
 Sequence Properties Analyser is largely a wrapper program that takes your inputs, converts them into formats suitable for other programs, runs those programs, collates the results and presents them in a useful way. Specifically it relies on the following software:
 
@@ -221,5 +222,22 @@ Department of Mathematics, Stanford University, Stanford CA 94305, USA
  Bacterial classifications derived from RecA protein sequence comparisons.
  J. Bacteriol. 177: 6881-6893.
 
+### Changelog and versions
+
+Current versions:
+biologistatsea/promofi:02
+biologistatsea/seprolyzer:02
+
+Updates compared to previous version:
+Sequence Properties Analyzer:
+Fix bug incorrectly distributing files for parallelization at low sequence numbers
+Reduced outputs when insufficient sequences meet criteria for meaningful analyses
+
+Protein Motif Finder:
+Updated text in html output
+Produce a truncated output when only very few motifs are identified.
+
 ### Contact: 
 The ProminTools package was written by Alastair Skeffington of the Max Planck Institute for Molecular Plant Physiology, Potsdam, Germany
+
+For bug fixes or features requests please leave me a note on Github or send me an email.
