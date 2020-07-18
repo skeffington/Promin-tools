@@ -56,22 +56,31 @@ The Tools can be run easily on a Windows desktop computer using the Docker conta
 
 For Protein Motif Finder:
 ```
-docker pull biologistatsea/promofi:02
+docker pull biologistatsea/promofi:04
 ```
 or Sequence Properties Analyzer:
 ```
-docker pull biologistatsea/seprolyzer:02
+docker pull biologistatsea/seprolyzer:03
 ```
-* Run the tool:
+* Run the tool on Windows as follows:
 Run Protein Motif Finder with a command like this:
 ```
-docker run -it -v C:\promin:/home/sharedata biologistatsea/promofi:02 /home/sharedata/FG.fasta /home/sharedata/BG.fasta 9 1e-6 /home/sharedata/OUT
+docker run -it -v C:\promin:/home/sharedata biologistatsea/promofi:04 /home/sharedata/FG.fasta /home/sharedata/BG.fasta 9 1e-6 1e-20 0.65 /home/sharedata/OUT
 ```
 or Sequence Properties Analyzer with a command like this:
 ```
-docker run -it -v C:\promin:/home/sharedata biologistatsea/seprolyzer:02 /home/sharedata/FG.fasta /home/sharedata/BG.fasta 1e-4 12 2.2 2.5 /home/sharedata/OUT
+docker run -it -v C:\promin:/home/sharedata biologistatsea/seprolyzer:03 /home/sharedata/FG.fasta /home/sharedata/BG.fasta 1e-4 12 2.2 2.5 /home/sharedata/OUT
 ```
-Where "C:\promin" refers to an exisiting directory on your C drive where your input data are stored and the output data are written. "/home/sharedata" refers to the location of this 'volume' withing the Docker container. You don't need to modifiy this. "biologistatsea/seprolyzer:02" or "biologistatsea/promofi:02" tells Docker with container to run. The remainder is the command line input for the tool. Running it without any of these next arguments will give you a list of the arguments the tools is expecting. For both tools the first two arguments are the path to the foreground fasta file and the path to the background fasta file within the container, while the last argument is the path to the output file and the prefix for output filenames. For Protein Motif Finder the remaining two arguments are the window size and the p-value cut-off. For Sequence Properties Analyzer the remaining arguments are the fLPS p-value and the parameters for Seg. 
+Where "C:\promin" refers to an exisiting directory on your C drive where your input data are stored and the output data are written. "/home/sharedata" refers to the location of this 'volume' withing the Docker container. You don't need to modifiy this. "biologistatsea/seprolyzer:03" or "biologistatsea/promofi:04" tells Docker with container to run. The remainder is the command line input for the tool. Running it without any of these next arguments will give you a list of the arguments the tools is expecting. For both tools the first two arguments are the path to the foreground fasta file and the path to the background fasta file within the container: you just need to change 'FG.fasta' and 'BG.fasta' to the file names for your data. The last argument is the path to the output file and the prefix for output filenames. You just need to change 'OUT' to the prefix you would like your filenames to have. For Protein Motif Finder the remaining arguments are the window size, the motif-x p-value cut-off, the fLPS p-value cut-off for identifying sequence bias and the dcor limit for inclution in clustering. For Sequence Properties Analyzer the remaining arguments are the fLPS p-value and the parameters for Seg. For more information about paramater choice, see detailed descriptions in subsequent sections.
+
+To run on a Linux machine, the following commands may be easier:
+```
+docker run --rm -v /home/Data/:/working/ -w /working  biologistatsea/promofi:04 /working/FG.fasta /working/BG.fasta 9 1e-6 1e-20 0.65 OUT
+```
+
+```
+docker run --rm -v /home/Data/:/working/ -w /working biologistatsea/seprolyzer:03 /working/FG.fasta /working/BG.fasta 1e-4 12 2.2 2.5 OUT
+```
 
 ### Protein Motif Finder
 
@@ -89,6 +98,10 @@ Where "C:\promin" refers to an exisiting directory on your C drive where your in
 
 "The significance parameter corresponds to the binomial probability threshold necessary to “fix” each motif position during the motif-building phase of the algorithm. It is critical to note that this value does not take into account a correction for multiple hypotheses (such as the Bonferroni correction). On any given motif-x search step there are (number of possible characters at each position) * (number of nonfixed positions) hypotheses being tested. For example, in an S-centered analysis of width 15, there would be (20) * (14) = 80 hypotheses tested. To ensure an alpha-value of at least 0.05 by the Bonferroni method, one would need to divide the desired alphavalue by the total number of hypotheses tested (i.e., 0.05/280 = 0.00018). Thus, for the previous example inputting a significance value of 0.00018 into motif-x would in fact correspond to a p-value of 0.05. The use of a motif-x significance threshold 15 greater than 0.0005 is not suggested as it may result in the extraction of motifs that are not statistically significant. The default value of this parameter is 0.000001, which corresponds to an actual alpha-value of approximately 0.0003 for a protein motif analysis of width 15 after Bonferroni correction. A significance threshold of 0.000001 was chosen for the present example."
 
+*fLPS p-value cutoff:* fLPS is used to identify proteins of biased composition to include in the clustering analysis. By default we restrict clustering based on motif content to these proteins, because a validated link between cluster membership and protein function has only been established for proteins of biased compostion (see ProminTools manuscript). However the user may effectively remove this requirement by changeing the parameter to one.
+
+*dcor cut-off:* To ensure that only proteins with reasonable motif-based similarity to other proteins in the data set enter the clustering procedure, proteins are required to have a Distance Correlation (dcor) value above 0.65 (default) with at least one other protein. Setting the dcor parameter to 0 will result in all proteins (that pass the other filters) being included in the clustering analysis.
+
 *Output prefix:* This is the text which will be at the beginning of each of the output file names 
 
 #### Description of motif finder outputs:
@@ -96,7 +109,8 @@ Where "C:\promin" refers to an exisiting directory on your C drive where your in
 * _bgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the background sequence set
 * _fgmotifs.txt : counts of each of the overrepresented motifs in each of the proteins in the foreground sequence set
 * _fgenrich.txt : the enrichment of each of the overrepresented motifs in each of the proteins in the foreground sequence set with repspect to the background sequence set  
-* _motifsummary.txt : for each overrepresented motif, the enrichemnt in the forgraound sequnces relative to the background; the count of proteins in which it appears and the median count of the motif per  protein  
+* _motifsummary.txt : for each overrepresented motif, the enrichemnt in the forgraound sequnces relative to the background; the count of proteins in which it appears and the median count of the motif per  protein. It also gives the (hypergeometric) p-values and corresponding q-values for each motif. Note the p-values are often so small that q-value estimates return 0.
+* _port_correlations.txt: This gives the motif based correlation (dcor) between each pair of proteins in the data set. In exel or R you can sort on each protein column and find the most similar protein in the data. A value of 1 is a perfect correlation, and 0 is no correlation.
 * _motifs.html : A html summary of the analysis with some helpful plots  
 * _Rscript.R : The R script that generated the html output. This can be used as a basis to produce your own custom figures and plots in R.  
 * _wordclouds.svg : An svg file of the wordclouds from the html report. This can be imported into inkscape or illustrator to make publication ready figures.  
@@ -157,7 +171,8 @@ The main tabular outputs of the program are listed below:
 * _Proteome_disorder.txt: Gives the position in the background proteome proteins of each disordered region. Data used in figure 4.
 * _positions.txt: Gives the positions of all compositionally biased regions in the POI protein set, including the residues that are biased and the inverse of the binomial p-value for the bias.
 * _protcount.txt: For each type of compositional bias (amino acid or group of amino acids), gives the count of proteins in the POI set containing this bias. Data used in figure 2.
-* _Rscript.R : The R script that generated the html output. This can be used as a basis to produce your own custom figures and plots in R  
+* _Rscript.R : The R script that generated the html output. This can be used as a basis to produce your own custom figures and plots in R 
+* _protsummary.txt: This provides a protein-wise summary of the key information outputted by Sequence Properties Analyzer
 
 #### Software used by the Sequence Properties Analyzer
 
@@ -225,10 +240,20 @@ Department of Mathematics, Stanford University, Stanford CA 94305, USA
 ### Changelog and versions
 
 Current versions:
-biologistatsea/promofi:02
-biologistatsea/seprolyzer:02
+biologistatsea/promofi:04
+biologistatsea/seprolyzer:03
 
-Updates compared to previous version:
+Updates in promofi:04 compared to promofi:02:
+
+Defaut is to limit clustering to biased seqences (user adjustable)
+Introduce min dcor value for proteins entering clustering (user adjustable)
+Add hypergeometric p-values and q-values to output table ```_motif_summary.txt```
+Add  ```_port_correlations.txt``` to output, detailing the all-vs-all pairwise dcor scores based on motif enrichment
+
+Updates in seprolyzer:03 compared to seprolyzer:02:
+
+New output table: *_port_correlations.txt
+Updates in promofi:02 and seprolyzer:02 compared to version 1:
 Sequence Properties Analyzer:
 Fix bug incorrectly distributing files for parallelization at low sequence numbers
 Reduced outputs when insufficient sequences meet criteria for meaningful analyses
